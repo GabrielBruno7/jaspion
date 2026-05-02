@@ -2,11 +2,6 @@ package jaspion.jaspion.domain.enrollmentmodality;
 
 import java.time.LocalDate;
 
-import jaspion.jaspion.domain.enrollment.Enrollment;
-import jaspion.jaspion.domain.graduation.Graduation;
-import jaspion.jaspion.domain.modality.Modality;
-import jaspion.jaspion.domain.plan.Plan;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +12,10 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jaspion.jaspion.domain.enrollment.Enrollment;
+import jaspion.jaspion.domain.graduation.Graduation;
+import jaspion.jaspion.domain.modality.Modality;
+import jaspion.jaspion.domain.plan.Plan;
 
 @Entity
 @Table(name = "enrollment_modality", uniqueConstraints = {
