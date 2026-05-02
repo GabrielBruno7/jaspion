@@ -1,6 +1,8 @@
-package jaspion.jaspion.domain;
+package jaspion.jaspion.domain.attendance;
 
 import java.time.LocalDate;
+
+import jaspion.jaspion.domain.enrollment.Enrollment;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

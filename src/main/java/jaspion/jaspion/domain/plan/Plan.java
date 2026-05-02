@@ -1,25 +1,40 @@
-package jaspion.jaspion.domain;
+package jaspion.jaspion.domain.plan;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import jaspion.jaspion.domain.modality.Modality;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "modality")
-public class Modality {
+@Table(name = "plan", uniqueConstraints = {
+        @UniqueConstraint(columnNames = { "modality_id", "name" })
+})
+public class Plan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 255)
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "modality_id", nullable = false)
+    private Modality modality;
+
+    @Column(nullable = false, length = 255)
     private String name;
+
+    @Column(name = "month_price", nullable = false, precision = 10, scale = 2)
+    private BigDecimal monthPrice;
 
     @Column(nullable = false)
     private Boolean active;
@@ -38,12 +53,28 @@ public class Modality {
         this.id = id;
     }
 
+    public Modality getModality() {
+        return modality;
+    }
+
+    public void setModality(Modality modality) {
+        this.modality = modality;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public BigDecimal getMonthPrice() {
+        return monthPrice;
+    }
+
+    public void setMonthPrice(BigDecimal monthPrice) {
+        this.monthPrice = monthPrice;
     }
 
     public Boolean getActive() {

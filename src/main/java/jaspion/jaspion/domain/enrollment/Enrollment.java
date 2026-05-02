@@ -1,6 +1,8 @@
-package jaspion.jaspion.domain;
+package jaspion.jaspion.domain.enrollment;
 
 import java.time.LocalDate;
+
+import jaspion.jaspion.domain.student.Student;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,7 +15,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
-import jaspion.jaspion.domain.enums.EnrollmentStatus;
 
 @Entity
 @Table(name = "enrollment")

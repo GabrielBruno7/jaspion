@@ -1,6 +1,8 @@
-package jaspion.jaspion.domain;
+package jaspion.jaspion.domain.graduation;
 
 import java.time.LocalDateTime;
+
+import jaspion.jaspion.domain.modality.Modality;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

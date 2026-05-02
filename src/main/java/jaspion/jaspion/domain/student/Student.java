@@ -1,4 +1,4 @@
-package jaspion.jaspion.domain;
+package jaspion.jaspion.domain.student;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
