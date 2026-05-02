@@ -1,4 +1,4 @@
-package jaspion.jaspion.domain.enrollment;
+package jaspion.domain.enrollment;
 
 public enum EnrollmentStatus {
     ACTIVE,

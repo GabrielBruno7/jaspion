@@ -1,4 +1,4 @@
-package jaspion.jaspion.domain.enrollmentmodality;
+package jaspion.domain.attendance;
 
 import java.time.LocalDate;
 
@@ -11,17 +11,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
-import jaspion.jaspion.domain.enrollment.Enrollment;
-import jaspion.jaspion.domain.graduation.Graduation;
-import jaspion.jaspion.domain.modality.Modality;
-import jaspion.jaspion.domain.plan.Plan;
+import jaspion.domain.enrollment.Enrollment;
 
 @Entity
-@Table(name = "enrollment_modality", uniqueConstraints = {
-        @UniqueConstraint(columnNames = { "enrollment_id", "modality_id" })
-})
-public class EnrollmentModality {
+@Table(name = "attendance")
+public class Attendance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,18 +23,6 @@ public class EnrollmentModality {
     @ManyToOne(optional = false)
     @JoinColumn(name = "enrollment_id", nullable = false)
     private Enrollment enrollment;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "modality_id", nullable = false)
-    private Modality modality;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "graduation_id", nullable = false)
-    private Graduation graduation;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "plan_id", nullable = false)
-    private Plan plan;
 
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
@@ -62,30 +44,6 @@ public class EnrollmentModality {
 
     public void setEnrollment(Enrollment enrollment) {
         this.enrollment = enrollment;
-    }
-
-    public Modality getModality() {
-        return modality;
-    }
-
-    public void setModality(Modality modality) {
-        this.modality = modality;
-    }
-
-    public Graduation getGraduation() {
-        return graduation;
-    }
-
-    public void setGraduation(Graduation graduation) {
-        this.graduation = graduation;
-    }
-
-    public Plan getPlan() {
-        return plan;
-    }
-
-    public void setPlan(Plan plan) {
-        this.plan = plan;
     }
 
     public LocalDate getStartDate() {

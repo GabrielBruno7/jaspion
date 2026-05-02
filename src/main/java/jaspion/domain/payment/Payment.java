@@ -1,4 +1,4 @@
-package jaspion.jaspion.domain.payment;
+package jaspion.domain.payment;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,7 +17,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
-import jaspion.jaspion.domain.enrollment.Enrollment;
+import jaspion.domain.enrollment.Enrollment;
 
 @Entity
 @Table(name = "payment", uniqueConstraints = {

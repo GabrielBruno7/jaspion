@@ -1,4 +1,4 @@
-package jaspion.jaspion;
+package jaspion;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

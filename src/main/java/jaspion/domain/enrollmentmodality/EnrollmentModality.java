@@ -1,4 +1,4 @@
-package jaspion.jaspion.domain.attendance;
+package jaspion.domain.enrollmentmodality;
 
 import java.time.LocalDate;
 
@@ -11,11 +11,17 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
-import jaspion.jaspion.domain.enrollment.Enrollment;
+import jakarta.persistence.UniqueConstraint;
+import jaspion.domain.enrollment.Enrollment;
+import jaspion.domain.graduation.Graduation;
+import jaspion.domain.modality.Modality;
+import jaspion.domain.plan.Plan;
 
 @Entity
-@Table(name = "attendance")
-public class Attendance {
+@Table(name = "enrollment_modality", uniqueConstraints = {
+        @UniqueConstraint(columnNames = { "enrollment_id", "modality_id" })
+})
+public class EnrollmentModality {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,6 +29,18 @@ public class Attendance {
     @ManyToOne(optional = false)
     @JoinColumn(name = "enrollment_id", nullable = false)
     private Enrollment enrollment;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "modality_id", nullable = false)
+    private Modality modality;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "graduation_id", nullable = false)
+    private Graduation graduation;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "plan_id", nullable = false)
+    private Plan plan;
 
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
@@ -44,6 +62,30 @@ public class Attendance {
 
     public void setEnrollment(Enrollment enrollment) {
         this.enrollment = enrollment;
+    }
+
+    public Modality getModality() {
+        return modality;
+    }
+
+    public void setModality(Modality modality) {
+        this.modality = modality;
+    }
+
+    public Graduation getGraduation() {
+        return graduation;
+    }
+
+    public void setGraduation(Graduation graduation) {
+        this.graduation = graduation;
+    }
+
+    public Plan getPlan() {
+        return plan;
+    }
+
+    public void setPlan(Plan plan) {
+        this.plan = plan;
     }
 
     public LocalDate getStartDate() {

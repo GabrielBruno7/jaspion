@@ -1,4 +1,4 @@
-package jaspion.jaspion.domain.graduation;
+package jaspion.domain.graduation;
 
 import java.time.LocalDateTime;
 
@@ -13,7 +13,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
-import jaspion.jaspion.domain.modality.Modality;
+import jaspion.domain.modality.Modality;
 
 @Entity
 @Table(name = "graduation", uniqueConstraints = {

@@ -1,4 +1,4 @@
-package jaspion.jaspion.domain.payment;
+package jaspion.domain.payment;
 
 public enum PaymentStatus {
     PAID,
