@@ -9,5 +9,4 @@ public class JaspionApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(JaspionApplication.class, args);
 	}
-
 }
